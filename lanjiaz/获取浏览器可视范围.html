@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+
+<body>
+	<script>
+
+		(function (w, d) {
+
+
+
+			// let temp = [];
+			// var item = [];
+			// // let blo = ture;
+			// for (var i = 0; i < 10; i++) {
+			// 	item[i] = setInterval(function () {
+			// 		function getViewPortWidth() {
+			// 			return document.documentElement.clientWidth || document.body.clientWidth;
+			// 		}
+			// 		function getViewPortHeight() {
+			// 			return document.documentElement.clientHeight || document.body.clientHeight;
+			// 		}
+			// 	}, 20);
+			// 	temp[i] = item[i];
+			// 	item[i] = item[i + 1];
+			// 	if (item[i] != temp[i]) console.log(item[i]);
+			// 	else {
+			// 		// blo = false;
+			// 		console.log(item[i + 1]);
+			// 	}
+			// }
+
+
+			function scrollFn() {
+				function getViewPortWidth() {
+					return document.documentElement.clientWidth || document.body.clientWidth;
+				}
+				function getViewPortHeight() {
+					return document.documentElement.clientHeight || document.body.clientHeight;
+				}
+				console.log(getViewPortWidth());
+				console.log(getViewPortHeight());
+			}
+			function throttle(method, context) {
+				clearTimeout(method.tId);
+				method.tId = setTimeout(function () {
+					method.call(context)
+				}, 300)
+			}
+			window.onscroll = function () {
+				throttle(scrollFn)
+			}
+		})(window, document)
+	</script>
+</body>
+
+</html>
