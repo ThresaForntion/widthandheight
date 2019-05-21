@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="js/zhuche.js">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			/* background-color: gray; */
+		}
+
+		.main {
+			width: 845px;
+			background-color: whitesmoke;
+			margin: 10px auto;
+			border: 1x black solid;
+			position: relative;
+			top: 100px;
+			text-align: center;
+			/* padding-bottom: 20px; */
+			height: 430px;
+		}
+
+		.msg {
+			width: 330px;
+			margin: 0 auto;
+		}
+
+		.msg h4 {
+			margin: 20px 0;
+		}
+
+		p {
+			text-align: left;
+			font-size: 10px;
+		}
+
+		.login {
+			position: relative;
+			left: cale(50%-50px);
+			height: 40px;
+			border: 1px solid #d8d8d8;
+			display: inline-block;
+			font-size: 14px;
+			margin: 0 auto;
+			text-align: left;
+		}
+
+		.choose {
+			display: inline-block;
+			width: 275px;
+			height: 40px;
+			border-right: 1px #d8d8d8 solid;
+			line-height: 40px;
+			vertical-align: top;
+			margin-left: 5px;
+		}
+
+		.icon {
+			width: 16px;
+			height: 40px;
+			display: inline-block;
+			line-height: 40px;
+			margin: auto 12px;
+			margin-right: 14px;
+			background: url(https://account.xiaomi.com/static/res/0eeaaed/passport/oauth/images/icon_user.png) no-repeat left center;
+			/* border-left: 1px #d8d8d8 solid; */
+		}
+
+		.msg-p-tx {
+			margin-bottom: 20px;
+		}
+
+		.login-ipone-locat {
+			width: 74px;
+			height: 42px;
+			display: inline-block;
+			border: 1px solid #d8d8d8;
+			position: relative;
+			left: -134px;
+			line-height: 42px;
+			vertical-align: top;
+			margin-left: -10px;
+		}
+
+		.login-ipone-locat span {
+			position: relative;
+			left: 5px;
+		}
+
+		.transpant {
+			float: left;
+			margin: 17px 0 0 10px;
+			position: relative;
+			left: 39px;
+			width: 0;
+			height: 0;
+			line-height: 0;
+			font-size: 0;
+			border-width: 5px;
+			border-style: solid;
+			border-color: #9d9d9d transparent transparent transparent;
+
+		}
+
+		.in {
+			position: relative;
+			display: inline-block;
+			height: 42px;
+			width: 254px;
+
+			right: -36px;
+			top: -44px;
+			border: 1px #d8d8d8 solid;
+		}
+
+		.tijoa {
+			width: 326px;
+			margin-top: -20px;
+			background-color: #ff6700;
+			border: none;
+			height: 42px;
+			
+		}
+
+		.font {
+			margin-top: 60px;
+			font-size: 12px;
+			margin-bottom: 20px;
+			color: black;
+		}
+
+		.font a {
+			text-decoration: none;
+			outline: 0 none;
+		}
+
+		.check {
+			/*点击前显示的css*/
+			width: 17px;
+			height: 15px;
+			margin-right: 5px;
+			margin-top: -4px;
+			/* margin-top: 0; */
+			display: inline-block;
+			vertical-align: middle;
+			background: url(img/icon_user.png);
+			background-position: -143px 0;
+			/* z-index:	 9999999; */
+		}
+
+		.check1 {
+			/*点击后显示的css*/
+			width: 17px;
+			height: 15px;
+			margin-right: 5px;
+			margin-top: -4px;
+			/* margin-top: 0; */
+			display: inline-block;
+			vertical-align: middle;
+			background: url(img/icon_user.png);
+			background-position: -95px 0;
+
+		}
+
+		.href {
+			width: 707px;
+			margin: 0 auto;
+			align-items: center;
+
+		}
+
+		.hret img {
+			position: relative;
+			bottom: -194px;
+			left: 413px;
+		}
+
+		.listDiv {
+			position: absolute;
+			display: block;
+			width: 326px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="main">
+		<div class="msg">
+			<div>
+				<img src="img/MI.png" alt="">
+			</div>
+			<h4>注册小米账号</h4>
+			<p>国家/地区</p>
+			<div class="login">
+				<p class="choose">中国</p>
+				<i class="icon"></i>
+			</div>
+			<p class="msg-p-tx">成功注册帐号后，国家/地区将不能被修改</p>
+			<div class="login-ipone">
+				<p>手机号</p>
+				<p class="login-ipone-locat"><span>+86</span></p>
+				<i class="transpant"></i>
+				<input class="in" type="tel">
+				<!-- <input class="in" type="number" name="num" min="0" max="10"  data-typePH="PH" autocomplete="tel" placeholder="请输入手机号"> -->
+			</div>
+			<input class="tijoa" type="submit" value="立即注册" style="color:white">
+		</div>
+		<div class="font">
+			<i id="js" class="check" > </i>
+			注册帐号即表示您同意并愿意遵守小米
+			<a href="" style="color:black"><strong>用户协议</strong> </a> 和
+			<a href="" style="color:black"><strong>隐私政策</strong> </a>
+		</div>
+	</div>
+	<div class="hret">
+		<img src="img/外链.png" alt="外链">
+	</div>
+	<script>
+		window.onload
+		var cke = document.getElementById('js')
+		cke.addEventListener('onclik',function () {
+			this.className = 'check1'
+		})
+	</script>
+</body>
+
+</html>

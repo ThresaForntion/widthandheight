@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米导航栏</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="zhuye.css">
+    <!-- <link rel="stylesheet" href="js/zhuye.js"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .head {
+            width: 100%;
+            height: 40px;
+            background-color: #333;
+        }
+
+        .inner {
+            width: 1226px;
+            height: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .inner .leftnav {
+            list-style: none;
+        }
+
+        .inner .leftnav li {
+            float: left;
+        }
+
+        .inner .leftnav li a {
+            color: #b0b0b0;
+            line-height: 40px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .inner .leftnav li a:hover {
+            color: #FFF;
+        }
+
+        .inner .leftnav li span {
+            margin: 0 .5em;
+            color: #424242;
+        }
+
+        .inner .rightnav {
+            list-style: none;
+            float: right;
+        }
+
+        .inner .rightnav li {
+            float: left;
+            /*子元素在父元素中往左浮动*/
+        }
+
+        .inner .rightnav li a {
+            color: #b0b0b0;
+            line-height: 40px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .zk {
+            z-index: 999999;
+        }
+
+        .inner .rightnav li a:hover {
+            color: #FFF;
+        }
+
+        .inner .rightnav li span {
+            margin: 0 .5em;
+            color: #424242;
+        }
+
+        .inner .rightnav .message {
+            padding: 0 10px;
+            cursor: text;
+        }
+
+        .inner .rightnav .message a {
+            cursor: text;
+        }
+
+        .inner .rightnav .topbar-cart,
+        .app {
+            width: 120px;
+            margin-left: 15px;
+            background: #424242;
+            text-align: center;
+            position: relative;
+        }
+
+        .inner .rightnav .topbar-cart:hover {
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .inner .rightnav .topbar-cart:hover a {
+            color: #ff6700;
+        }
+
+        .inner .rightnav .topbar-cart:hover div {
+            display: block;
+        }
+
+        .inner .rightnav .topbar-cart a:hover {
+            color: #ff6700;
+        }
+
+        .inner .rightnav .topbar-cart div,
+        .app .app-content {
+            width: 316px;
+            height: 100px;
+            background-color: #ffF;
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0px;
+            text-align: center;
+            line-height: 100px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .app {
+            width: 84px;
+            background: none;
+        }
+
+        .app .app-content {
+            position: absolute;
+            left: -39px;
+            ;
+            top: 42px;
+            width: 140px;
+            height: 160px;
+            ;
+            box-shadow: -5px 5px 10px -4px gray, 5px 5px 10px -4px gray;
+            z-index: 99999;
+            overflow: hidden;
+        }
+
+        .app .app-content p {
+            position: relative;
+            top: -94px;
+        }
+
+        .app .app-content img {
+            width: 176px;
+            position: relative;
+            top: -14px;
+            left: -19px;
+        }
+
+        .app-content-relige {
+            width: 0;
+            height: 0;
+            border-bottom: 20px solid rgb(250, 250, 250);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+
+            position: relative;
+            left: 60px;
+            top: -16px;
+        }
+
+        .app:hover .app-content {
+            display: block;
+            margin-top: 2px;
+            animation: hovera 2s ease-in-out infinite;
+            animation-fill-mode: forwards;
+
+        }
+
+        .inner .rightnav .topbar-cart-che {
+            margin: 0 6px 0 0;
+            font-size: 1.5em;
+            vertical-align: text-top;
+        }
+
+        /* 主体部分 */
+        main {
+            width: 1226px;
+            margin: 0 auto;
+        }
+
+        main img {
+            width: 56px;
+            position: relative;
+            top: 28px;
+
+        }
+
+        .main-nav {
+            position: relative;
+            text-align: center;
+            list-style: none;
+            right: -222px;
+            top: -21px;
+        }
+
+        .main-nav li {
+            float: left;
+            margin: 10px;
+            top: 0;
+            cursor: pointer;
+        }
+
+        .main-nav li:hover {
+            color: #ff6700;
+        }
+
+        .re-search {
+            width: 296px;
+            height: 50px;
+            position: relative;
+            right: -397px;
+            top: -22px;
+            ;
+        }
+
+        .search {
+            width: 188px;
+            height: 39px;
+            outline: none;
+            border: 1px solid #d8d8d8;
+            padding-left: 20px;
+            position: absolute;
+            right: -468px;
+
+        }
+
+        .dh {
+            width: 988px;
+            height: 462px;
+            background-color: #fff;
+            position: relative;
+            top: -22px;
+            left: 260px;
+            display: none;
+            z-index: 999;
+            box-shadow: 0px 0px 5px 0px #bdc3c7, 5px 6px 12px 3px #bdc3c7;
+        }
+
+        .dhsj:hover .dh {
+            display: block;
+        }
+
+        .mi9 {
+            display: inline-block;
+            position: absolute;
+            width: 29px;
+            font-size: 10px;
+            right: -403px;
+            top: 12px;
+            outline: none;
+            text-decoration: none;
+            background: #d8d8d8;
+        }
+
+        .mi9se {
+            display: inline-block;
+            position: absolute;
+            width: 44px;
+            font-size: 10px;
+            right: -455px;
+            top: 12px;
+            outline: none;
+            text-decoration: none;
+            background: #d8d8d8;
+        }
+
+        .mi9:hover,
+        .mi9se:hover {
+            /* background-color: #d32f2f; */
+            animation: choose 0.5s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .contain-main-nav {
+            height: 0;
+            width: 1226px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .div-li {
+            width: 240px;
+            height: 230px;
+            line-height: 230px;
+            text-align: center;
+            float: left;
+
+        }
+
+        .div-li:nth-of-type(5) img {
+            border-right: none;
+        }
+
+        .div-li p {
+            width: 123px;
+            height: 20px;
+            position: relative;
+            top: -71px;
+            line-height: 20px;
+            left: 57px;
+            font-size: 10px;
+        }
+
+        .div-li-modify {
+            width: 40px;
+            height: 20px;
+            display: inline-block;
+            /* border: 1px solid; */
+            left: 101px;
+            line-height: 20px;
+            position: relative;
+            top: -106px;
+
+        }
+
+        .div-li-modify p {
+            height: 20px;
+            width: 40px;
+            position: relative;
+            top: 0px;
+            background: #ff6700;
+            left: -6px;
+
+        }
+
+        .contain-main-nav div img {
+            width: 160px;
+            height: 100px;
+            line-height: 230px;
+            text-align: center;
+            position: relative;
+            top: 27px;
+            left: -3px;
+            border-right: 1px solid #a8a8a8;
+            padding-right: 34px;
+        }
+
+        @keyframes choose {
+            0% {
+                background-color: gray;
+            }
+
+            100% {
+                background-color: #ff6700;
+            }
+        }
+
+        ::-webkit-input-placeholder {
+            text-align: right;
+        }
+
+        .ss {
+            width: 39px;
+            height: 39px;
+            border: 1px #d8d8d8 solid;
+            display: inline-block;
+            position: absolute;
+            right: -508px;
+        }
+
+        .ss a {
+            position: relative;
+            top: 12px;
+            left: 12px;
+
+        }
+
+        .main {
+            width: 100%;
+        }
+        .img{
+            list-style-type:none;
+        }
+        .img img {
+            display: block;
+            margin-bottom: 50px;
+            width: 1519px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div class="inner">
+            <ul class="leftnav">
+                <li><a href="">小米商城</a> <span>|</span></li>
+                <li><a href="#">MIUI</a><span>|</span></li>
+                <li><a href="#">IoT</a><span>|</span></li>
+                <li><a href="#">云服务</a><span>|</span></li>
+                <li><a href="#">金融</a><span>|</span></li>
+                <li><a href="#">有品</a><span>|</span></li>
+                <li><a href="#">小爱开放平台</a><span>|</span></li>
+                <li><a href="#">政企服务</a><span>|</span></li>
+                <li><a href="#">资质证照</a><span>|</span></li>
+                <li><a href="#">协议规则</a><span>|</span></li>
+                <li class="app"><a href="#">下载app</a><span>|</span>
+                    <div class="app-content">
+                        <div class="app-content-relige">
+
+                        </div>
+
+                        <img src="2.png" alt="">
+
+
+                        <p>小米商城app</p>
+                    </div>
+                </li>
+                <li><a href="#">Select Region</a></li>
+            </ul>
+            <ul class="rightnav">
+                <li><a href="登录.html">登录</a><span>|</span></li>
+                <li><a href="注册.html">注册</a><span>|</span></li>
+                <li class="message">
+                    <a href="#">消息通知</a></li>
+                <li class="topbar-cart">
+                    <a href="#">
+                        <i class="topbar-cart-che fa fa-shopping-cart "></i>购物车(0)
+                    </a>
+                    <div class="zk">
+                        购物车中还没有商品，赶紧选购吧！
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+
+    <main>
+        <img src="img/MI.png" alt="MI-logo">
+        <ul class="main-nav">
+            <li class="xiaomishouji5">
+                <p>小米手机</p>
+            </li>
+            <li>
+                <p>红米</p>
+            </li>
+            <li>
+                <p>电视</p>
+            </li>
+            <li>
+                <p>笔记本</p>
+            </li>
+            <li>
+                <p>家电</p>
+            </li>
+            <li>
+                <p>新品</p>
+            </li>
+            <li>
+                <p>路由器</p>
+            </li>
+            <li>
+                <p>智能硬件</p>
+            </li>
+            <li>
+                <p>服务</p>
+            </li>`
+            <li>
+                <p>社区</p>
+            </li>
+        </ul>
+        <div class="re-search">
+            <input type="text" class="search">
+            <a class="mi9" href="javascript:void(0);">小米9</a><a class="mi9se" href="">小米9 SE</a>
+            <div class="ss">
+                <a href=""><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+        <div class="title">
+
+        </div>
+
+    </main>
+    <div class="mian">
+        <li class="img"><img src="https://i1.mifile.cn/f/i/2019/mi9/index/index3.jpg?v=1" alt=""></li>
+        <li class="img"><img src="" alt=""></li>
+        <li class="img"><img src="https://i1.mifile.cn/f/i/2019/mi9/index/cpu.jpg" alt=""></li>
+        <li class="img"><img src="" alt=""></li>
+        <li class="img"><img src="https://i1.mifile.cn/f/i/2019/mi9/index/storage.jpg" alt style="width: 960px;
+            position: relative;
+            left: 16%;" alt=""></li>
+        <li class="img"><img src="" alt=""></li>
+        <li class="img"><img src="https://i1.mifile.cn/f/i/2019/mi9/index/play.jpg" alt style="width: 960px;
+            position: relative;
+            left: 16%;" alt=""></li>
+        <li class="img"><img src="" alt=""></li>
+        <li class="img"><img src="https://i1.mifile.cn/f/i/2019/mi9/index/noline.png?v=2" alt style="width: 960px;
+            position: relative;
+            left: 16%;" alt="">
+        </li>
+        <li class="img"><img src="" alt=""></li>
+        <li class="img"><img src="https://i1.mifile.cn/f/i/2019/mi9/index/camera.jpg" alt=""></li>
+        <li class="img"><img src="" alt=""></li>
+        <li class="img"> <video src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/35b1b0164ba9c2c36ed390d8596954ad.mp4" autoplay loop muted
+            alt style="    width: 913px;
+            position: relative;
+            left: 18%;"></video> </li>
+    </div>
+    <script>
+        var num = document.getElementsByClassName('img').length;
+        var img = document.getElementsByClassName("img");
+        var n = 0;
+        lazyload();
+        //window.onscroll = lazyload;
+        function lazyload() {
+            var seeHeight = document.documentElement.clientHeight;
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            for (var i = n; i < num; i++) {
+                if (img[i].offsetTop < seeHeight + scrollTop) {
+                    if (img[i].getAttribute("src") == "") {
+                        img[i].src = img[i].getAttribute("data-src");
+                    }
+                    n = i + 1;
+                }
+            }
+        }
+        function throttle(fun, delay, time) {
+            var timeout,
+                startTime = new Date();
+            return function () {
+                var context = this,
+                    args = arguments,
+                    curTime = new Date();
+                clearTimeout(timeout);
+
+                if (curTime - startTime >= time) {
+                    fun.apply(context, args);
+                    startTime = curTime;
+
+                } else {
+                    timeout = setTimeout(function () {
+                        fun.apply(context, args);
+                    }, delay);
+                }
+            };
+        };
+        //function lazyload(event) {}
+        window.addEventListener('scroll', throttle(lazyload, 500, 1000));
+
+    </script>
+</body>
+
+</html>
