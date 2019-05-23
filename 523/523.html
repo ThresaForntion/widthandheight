@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>523</title>
+	<style>
+		/* 表框 */
+		.pie {
+			position: relative;
+			margin: 1em auto;
+			padding: 0;
+			width: 32em;
+			height: 32em;
+			border-radius: 50%;
+			list-style: none;
+			overflow: hidden;
+			border: 5px gray solid;
+		}
+
+		.slice {
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 50%;
+			height: 50%;
+			transform-origin: 0% 100%;
+
+		}
+
+		.slice-one {
+			transform: rotate(-30deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-two {
+			transform: rotate(-60deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-three {
+			transform: rotate(-90deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-four {
+			transform: rotate(-120deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-five {
+			transform: rotate(-150deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-six {
+			transform: rotate(-180deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-seven {
+			transform: rotate(-210deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-eight {
+			transform: rotate(-240deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-nine {
+			transform: rotate(-270deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-ten {
+			transform: rotate(-300deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-eleven {
+			transform: rotate(-330deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		.slice-twelve {
+			transform: rotate(-360deg) skewY(-60deg);
+			border: 5px gray solid
+		}
+
+		/* 表盘加指针 */
+		.dial {
+			width: 29em;
+			height: 29em;
+			border-radius: 50% 50%;
+			background-color: white;
+			top: -31.8em;
+			left: 32.5em;
+			text-align: center;
+			line-height: 29em;
+			position: relative;
+
+			transition: all 1s;
+		}
+
+		.baseD {
+			width: 30px;
+			height: 30px;
+			background-color: gray;
+			display: inline-block;
+			position: absolute;
+			top: 48%;
+			left: 45%;
+			border-radius: 50%;
+			z-index: 1;
+		}
+
+		.hour {
+			height: 5em;
+			width: 0;
+			border: 2px #f1c40f solid;
+			position: absolute;
+			top: 34%;
+			left: 48%;
+			animation: hour 216000 steps(60) infinite;
+			animation-fill-mode: forwards;
+			transform-origin: 0 5em;
+		}
+
+		.minute {
+			height: 7em;
+			border: 2em #f1c40f solid;
+			width: 0;
+			border: 2px #2980b9 solid;
+			position: absolute;
+			top: 26%;
+			left: 48%;
+			animation: hour 3600s steps(60) infinite;
+			/* animation-fill-mode: forwards; */
+			transform-origin: 0 7em;
+		}
+
+		.second {
+			height: 11em;
+			border: 2em #f1c40f solid;
+			width: 0;
+			border: 2px #c0392b solid;
+			position: absolute;
+			top: 13%;
+			left: 48%;
+			animation: hour 60s steps(60) infinite;
+			/* animation-fill-mode: forwards; */
+			transform-origin: 0 11em;
+		}
+
+		@keyframes hour {
+			to {
+				transform: rotate(360deg)
+			}
+		}
+
+		/* 小米布局 */
+		.main {
+			width: 1000px;
+			border: 1px #d8d8d8 solid;
+			position: relative;
+			top: -400px;
+			display: flex;
+			/* flex-wrap: wrap;
+			justify-content: space-around; */
+		}
+
+		.cuv {
+			width: 280px;
+			height: 500px;
+			border: 1px #d8d8d8 solid;
+			display: inline-block;
+			/* margin-right: -21px; */
+			/* margin-left: 21px; */
+			margin: 20px -21px 10px 10px;
+		}
+
+		.flx {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+		}
+
+		.flx li {
+			width: 207px;
+			height: 240px;
+			border: 1px #d8d8d8 solid;
+			list-style: none;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<ul class='pie'>
+		<li class='slice-one slice'> </li>
+		<li class='slice-two slice'> </li>
+		<li class='slice-three slice'> </li>
+		<li class='slice-four slice'> </li>
+		<li class='slice-five slice'> </li>
+		<li class='slice-six slice'> </li>
+
+		<li class='slice-seven slice'> </li>
+		<li class='slice-eight slice'> </li>
+		<li class='slice-nine slice'> </li>
+		<li class='slice-ten slice'> </li>
+		<li class='slice-eleven slice'> </li>
+		<li class='slice-twelve slice'> </li>
+	</ul>
+
+	<div class="dial">
+		<div class="baseD"></div>
+		<div class="hour"></div>
+		<div class="minute"></div>
+		<div class="second"></div>
+	</div>
+
+
+
+	<!-- 小米布局 -->
+
+	<div class="main">
+		<div class="cuv"></div>
+		<ul class="flx">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
