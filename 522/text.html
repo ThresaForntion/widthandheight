@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.abrster {
+			width: 200px;
+			margin: 0 auto;
+			position: absolute;
+			left: 37%;
+			top: 15%;
+		}
+
+		.abrster div {
+			border: 1xp solid black;
+
+		}
+
+		h3 {
+			color: #f6e58d;
+		}
+
+		h3,
+		.zk div {
+			background-color: #7dffe7;
+			width: 100%;
+			height: 42px;
+			line-height: 42px;
+			text-align: center;
+		}
+
+		.zk {
+			transition: ease 1s;
+			width: 100%;
+			overflow: hidden;
+			height: 0;
+		}
+
+		.zk div {
+			font-size: 10px;
+			background-color: #f6e58d;
+
+		}
+
+		.counter:hover .zk {
+			height: 210px;
+
+		}
+
+		.rotate {
+			position: relative;
+			left: 50%;
+			top: 400px;
+		}
+
+		.rotate img {
+			width: 100px;
+			position: absolute;
+			transform-origin: 100px 0px;
+		}
+		img:nth-of-type(1){
+			transform: rotate(60deg);
+		}
+		img:nth-of-type(2){
+			transform: rotate(120deg);
+		}
+		img:nth-of-type(3){
+			transform: rotate(180deg);
+		}
+		img:nth-of-type(4){
+			transform: rotate(240deg);
+		}
+		img:nth-of-type(5){
+			transform: rotate(300deg);
+		}
+		img:nth-of-type(6){
+			transform: rotate(360deg);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="abrster">
+		<div class="counter">
+			<h3>市内新闻</h3>
+			<div class="zk">
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+			</div>
+		</div>
+		<div class="counter">
+			<h3>省内新闻</h3>
+			<div class="zk">
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+			</div>
+		</div>
+		<div class="counter">
+			<h3>国内新闻</h3>
+			<div class="zk">
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+			</div>
+		</div>
+		<div class="counter">
+			<h3>国际新闻</h3>
+			<div class="zk">
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+				<div>量子领域实现连接量子之海</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="rotate">
+		<img src="pk1.png" alt="">
+		<img src="pk2.png" alt="">
+		<img src="pk1.png" alt="">
+		<img src="pk2.png" alt="">
+		<img src="pk1.png" alt="">
+		<img src="pk2.png" alt="">
+	</div>
+</body>
+
+</html>
