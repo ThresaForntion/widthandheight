@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>时钟</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .biaopan {
+            width: 300px;
+            height: 300px;
+            background-color: gray;
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+            top: 98px;
+        }
+
+        .shike {
+            width: 10px;
+            height: 300px;
+            background-color: #aaa69d;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+
+        .shike:nth-child(2) {
+            transform: rotate(30deg);
+        }
+
+        .shike:nth-child(3) {
+            transform: rotate(60deg);
+        }
+
+        .shike:nth-child(4) {
+            transform: rotate(90deg);
+        }
+
+        .shike:nth-child(5) {
+            transform: rotate(120deg);
+        }
+
+        .shike:nth-child(6) {
+            transform: rotate(150deg);
+        }
+
+
+        .white {
+            width: 275px;
+            height: 275px;
+            background-color: #7ed6df;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .small {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: gray;
+            z-index: 1;
+        }
+
+        .shi {
+            width: 10px;
+            height: 80px;
+            background-color: red;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -5px;
+            margin-top: -80px;
+            transform: rotate(0deg);
+            transform-origin: bottom center;
+            animation: clock linear 86400s infinite;
+        }
+
+        .fen {
+            width: 6px;
+            height: 96px;
+            background-color: pink;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -3px;
+            margin-top: -96px;
+            transform-origin: bottom center;
+            transform: rotate(0deg);
+            animation: clock linear 3600s infinite;
+        }
+
+        .second {
+            width: 4px;
+            height: 110px;
+            background-color: blue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -2px;
+            margin-top: -110px;
+            transform-origin: bottom center;
+            transform: rotate(0deg);
+            animation: clock steps(60) 60s infinite;
+        }
+
+/* 
+        @keyframes clock {
+            from {
+
+                transform: rotate(0deg);
+            }
+
+            to {
+
+                transform: rotate(360deg);
+            }
+        } */
+
+        .times {
+            width: 200px;
+            font-family: "宋体";
+            height: 60px;
+            line-height: 60px;
+            border: 1px solid #d1ccc0;
+            position: absolute;
+            left: 30%;
+            top: 29%;
+            overflow: hidden;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .times_count {}
+
+        span {
+            position: absolute;
+        }
+
+        span:nth-of-type(1) {
+            left: calc(50% + 84px);
+            top: 95px;
+        }
+
+        span:nth-of-type(2) {
+            left: calc(50% - -135px);
+            top: 151px;
+        }
+
+        span:nth-of-type(3) {
+            left: calc(50% - -160px);
+            top: 239px;
+        }
+
+        span:nth-of-type(4) {
+            left: calc(50% - -135px);
+            top: 321px;
+        }
+
+        span:nth-of-type(5) {
+            left: calc(50% - -84px);
+            top: 380px;
+        }
+
+        span:nth-of-type(6) {
+            left: calc(50% - 8px);
+            top: 403px;
+        }
+
+        span:nth-of-type(7) {
+            left: calc(50% - 100px);
+            top: 387px;
+        }
+
+        span:nth-of-type(8) {
+            left: calc(50% - 151px);
+            top: 330px;
+        }
+
+        span:nth-of-type(9) {
+            left: calc(50% - 175px);
+            top: 239px;
+        }
+
+        span:nth-of-type(10) {
+            left: calc(50% - 150px);
+            top: 151px;
+        }
+
+        span:nth-of-type(11) {
+            left: calc(50% - 99px);
+            top: 92px;
+        }
+
+        span:nth-of-type(12) {
+            left: calc(50% - 8px);
+            top: 69px;
+        }
+
+        .Case {
+            position: absolute;
+            border: 1px #84817a solid;
+            box-shadow: inset 0 0px 19px 5px #000;
+            border-radius: 9px;
+            width: 457px;
+            height: 500px;
+            top: 158px;
+            left: 35%;
+            background-color: #dff9fb;
+            z-index: -1;
+        }
+
+        .case2 {
+            position: absolute;
+            top: 114px;
+            left: calc(65% - 2px);
+            transform: rotateZ(0deg) skewY(-11deg);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative;top:5rem;">
+        <span>Ⅰ</span>
+        <span>Ⅱ</span>
+        <span>Ⅲ</span>
+        <span>Ⅳ</span>
+        <span>Ⅴ</span>
+        <span>Ⅵ</span>
+        <span>Ⅶ</span>
+        <span>Ⅷ</span>
+        <span>Ⅸ</span>
+        <span>Ⅹ</span>
+        <span>XI</span>
+        <span>XⅡ</span>
+        <div class="biaopan">
+
+            <div class="shike"></div>
+            <div class="shike"></div>
+            <div class="shike"></div>
+            <div class="shike"></div>
+            <div class="shike"></div>
+            <div class="shike"></div>
+
+            <div class="white"></div>
+
+            <div class="small"></div>
+
+
+
+            <div id="hours" class="shi"></div>
+            <div id="minutes" class="fen"></div>
+            <div id="seconds" class="second"></div>
+
+
+        </div>
+    </div>
+
+
+    <div class="Case"> </div>
+    <div class="Case case2">
+       <h1 id="aTime" class="times"></h1>
+    </div> 
+    <!-- <h2 id="atimes" class="times"></h2> -->
+    
+    <script type="text/javascript">
+		window.onload = function () {
+			function addzero(num) {
+				if (num >= 10) {
+					return "" + num;
+				}
+				else {
+					return "0" + num;
+				}
+			}
+
+			function times() {
+				var date = new Date();
+				var aTime = document.getElementById('aTime');
+				var str = addzero(date.getHours()) + ":" + addzero(date.getMinutes()) + ":" + addzero(date.getSeconds());
+                aTime.innerHTML = str;
+                
+                
+			}
+			setInterval(times, 1000);
+			times();
+
+			function Ttranform() {
+				var date = new Date();
+				var hours = document.getElementById('hours');
+				var minutes = document.getElementById('minutes');
+				var seconds = document.getElementById('seconds');
+				var num = date.getHours();
+				var num2 = date.getMinutes();
+				var num3 = date.getSeconds();
+				hours.style.transform = "rotate(" + (num * 30 ) + "deg)";
+				minutes.style.transform = "rotate(" + (num2 * 6 ) + "deg)";
+				seconds.style.transform = "rotate(" + (num3 * 6 ) + "deg)";
+
+			}
+			setInterval(Ttranform, 1000);
+			Ttranform();
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		main {
+			width: 1226px;
+			margin: 0 auto;
+		}
+
+		p {
+			display: inline-block;
+		}
+
+		button {
+			margin-bottom: 10px;
+			background: #4b7bec;
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
+
+		#operation {
+			position: relative;
+			top: 72px;
+		}
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+			-webkit-appearance: none !important;
+		}
+
+		h3 {
+			margin-bottom: -8px;
+			margin-top: -4px;
+		}
+
+		#changes {
+			text-align: center;
+
+			position: relative;
+			top: 71px;
+		}
+
+		#changes div {
+			background-color: #fff;
+			transition: 1s;
+		}
+
+		#changes button {
+			position: relative;
+			left: calc(-50% + 64px);
+
+		}
+
+		.changes_count {
+			height: 40px;
+			width: 100%;
+			line-height: 40px;
+			text-align: left;
+			/* margin-bottom: -25px; */
+			border: 1px #dff9fb solid;
+		}
+
+		#convert {
+			position: relative;
+			top: 6rem;
+		}
+
+		#judge {
+			position: relative;
+			top: 8rem;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<div id="operation">
+			<h2>运算</h2>
+			<h3>加</h3>
+			<div>
+
+				<input name="add_N1" type="number">
+				<p>加</p>
+				<input name="add_N1" type="number">
+
+				<button class="btn" onclick="btn_1()">求和</button>
+			</div>
+			<h3>减</h3>
+			<div>
+
+				<input name="add_N2" type="number">
+				<p>减</p>
+				<input name="add_N2" type="number">
+
+				<button class="btn" onclick="btn_2()">求差</button>
+			</div>
+			<h3>乘</h3>
+			<div>
+
+				<input name="add_N3" type="number">
+				<p>乘</p>
+				<input name="add_N3" type="number">
+
+				<button class="btn" onclick="btn_3()">求积</button>
+			</div>
+			<h3>除</h3>
+			<div>
+
+				<input name="add_N4" type="number">
+				<p>除</p>
+				<input name="add_N4" type="number">
+
+				<button class="btn" onclick="btn_4()">求商</button>
+			</div>
+			<h3>余</h3>
+			<div>
+
+				<input name="add_N5" type="number">
+				<p>余</p>
+				<input name="add_N5" type="number">
+
+				<button class="btn" onclick="btn_5()">求余</button>
+			</div>
+		</div>
+
+		<div id="changes">
+			<h3 style="text-align: left;">隔行变色</h3><br>
+			<button onclick="changes() ">执行变色</button>
+			<button id="button_clear" onclick="changes_clear() ">清除变色</button>
+			<div class="changes_count">隔行变色</div>
+			<div class="changes_count">隔行变色</div>
+			<div class="changes_count">隔行变色</div>
+			<div class="changes_count">隔行变色</div>
+			<div class="changes_count">隔行变色</div>
+
+		</div>
+
+		<div id="convert">
+			<h3>时间转换</h3><br>
+			<input id="convert_name" type="number" placeholder="单位(秒)">
+			<button onclick="convert_time() ">秒转时间</button>
+		</div>
+
+		<div id="judge">
+			<h3>判断是否为两位数</h3><br>
+			<input id="judge_name" type="number" placeholder="请输入数字">
+			<button onclick="judge_name()">判断</button>
+		</div>
+	</main>
+	<script type="text/javascript">
+
+		function operation_4(s, key) {
+			var add_p = s;
+			var sum = 0;
+			var temp = 0;
+			console.log(sum);
+			switch (key) {
+				case 1:
+					sum = parseInt(add_p[0].value) + parseInt(add_p[1].value);
+					break;
+				case 2:
+					sum = parseInt(add_p[0].value) - parseInt(add_p[1].value);
+					break;
+				case 3:
+					sum = parseInt(add_p[0].value) * parseInt(add_p[1].value);
+					break;
+				case 4:
+					sum = parseInt(add_p[0].value) / parseInt(add_p[1].value);
+					break;
+				case 5:
+					sum = parseInt(add_p[0].value) % parseInt(add_p[1].value);
+					break;
+				default:
+					break;
+			}
+
+			alert(sum);
+		}
+
+		//加
+		function btn_1() {
+			var add_l = document.getElementsByName('add_N1');
+			operation_4(add_l, 1);
+		}
+		//减
+		function btn_2() {
+			var add_l = document.getElementsByName('add_N2');
+			operation_4(add_l, 2);
+		}
+		//乘
+		function btn_3() {
+			var add_l = document.getElementsByName('add_N3');
+			operation_4(add_l, 3);
+		}
+		//除
+		function btn_4() {
+			var add_l = document.getElementsByName('add_N4');
+			operation_4(add_l, 4);
+		}
+		//余
+		function btn_5() {
+			var add_l = document.getElementsByName('add_N5');
+			operation_4(add_l, 5);
+		}
+		function changes() {
+			var changes_count = document.getElementsByClassName('changes_count');
+			changes_count[0].style.background = 'yellow';
+			changes_count[1].style.background = 'red';
+			changes_count[2].style.background = 'yellow';
+			changes_count[3].style.background = 'red';
+			changes_count[4].style.background = 'yellow';
+		}
+		function changes_clear() {
+			var changes_count = document.getElementsByClassName('changes_count');
+			changes_count[0].style.background = '#fff';
+			changes_count[1].style.background = '#fff';
+			changes_count[2].style.background = '#fff';
+			changes_count[3].style.background = '#fff';
+			changes_count[4].style.background = '#fff';
+		}
+		function convert_time() {
+			var convert_name = document.getElementById('convert_name').value;
+			convert_name = parseInt(convert_name);
+			var convert_hours = convert_name / 600;
+			var convert_minute = convert_name / 60;
+			convert_minute = parseInt(convert_minute);
+			var convert_second = convert_name - (convert_minute * 60);
+			alert(convert_minute + '分' + convert_second + "秒");
+		}
+		function judge_name() {
+			var judge_value = document.getElementById('judge_name').value;
+			judge_value = parseInt(judge_value);
+			if (judge_value > 9 && judge_value < 100) alert("是两位数(可能包含小数，例如：9.1)");
+			else alert("不是两位数");
+			closed_alert();
+		}
+		function closed_alert() {
+			if(alert()){
+			window.addEventListener('click',function () {
+				window.alert=function(){};
+			})
+			removeEventListener;
+		}
+		}
+		
+	</script>
+</body>
+
+</html>
