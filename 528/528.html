@@ -249,22 +249,37 @@
 				tr[x].addEventListener("mouseout", function () {
 					tr[x].style.backgroundColor = "#fff";
 					tr[x].style.transition = 'all ease 1s'
+					if (interleave.innerText == "关闭隔行变色") {
+						for (var i = 0; i < tr.length; i++) {
+							if (i % 2 == 0) {
+								tr[i].style.backgroundColor = "#f6e58d";
+								tr[i].style.transition = 'all ease 1s'
+							}
+						}
+					}
 				})
+
+			}
+			function removelis() {
+				for (var i = 0; i < tr.length; i++) {
+					if (i % 2 == 0) {
+						tr[i].style.backgroundColor = "#fff";
+						tr[i].style.transition = 'all ease 1s'
+					}
+					tr[i].removeEventListener("mousemove",moveinther);
+				}
+				
 			}
 			movein1.addEventListener("click", function () {
 				if (movein1.innerText == "开启移入变色") {
-
+					movein1.style.backgroundColor = "#d63031";
+					movein1.style.transition = 'all ease 1s'
+					movein1.innerText = "关闭移入变色"
 					moveinther(1);
 					moveinther(2);
 					moveinther(3);
 					moveinther(4);
 					moveinther(5);
-					movein1.style.backgroundColor = "#d63031";
-					movein1.style.transition = 'all ease 1s'
-					movein1.innerText = "关闭移入变色"
-
-
-
 				}
 				else {
 					for (var i = 0; i < tr.length; i++) {
@@ -274,8 +289,8 @@
 						movein1.style.backgroundColor = "#81ecec";
 						movein1.style.transition = 'all ease 1s'
 						movein1.innerText = "开启移入变色"
-
 					}
+					removelis();
 				}
 			})
 
@@ -313,7 +328,7 @@
 			// 	tabs_psg_psg[3].style.display = 'block';
 			// 	// i=3;
 			// })
-			function tabs_psgx(k) { 
+			function tabs_psgx(k) {
 				tabs_psg[k].addEventListener("click", function () {
 					tabs_psg_psg[k].style.display = 'block';//k>=0&&k<=3
 					for (let l = 0; l < tabs_psg.length; l++) {
