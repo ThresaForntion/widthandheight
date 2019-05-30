@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="jquery-3.4.1.js"></script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+
+		}
+
+		main {
+			position: relative;
+			top: 10rem;
+			left: 34%;
+			width: 500px;
+
+		}
+
+		main div {
+			/* display: inline-block; */
+			float: left;
+			border: 1px solid #F4D0CE;
+		}
+
+		#left_content,
+		#right_content {
+			width: 50px;
+			height: 400px;
+			border: none;
+		}
+
+		#left_content div,
+		#right_content div {
+			height: 40px;
+			width: 100%;
+			text-align: center;
+			line-height: 40px;
+			transition: all ease 1s;
+			background-color: #FFF6F7;
+
+		}
+
+		#left_content div a,
+		#right_content div a {
+			text-decoration: none;
+			outline: none;
+			color: #2c3e50;
+		}
+
+		#center_img {
+			width: 393px;
+			height: 378px;
+
+		}
+		#center_img img{
+			position: absolute;
+			width: 393px;
+			height: 378px;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<div id="left_content">
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">女靴</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">雪地靴</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">冬裙</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">呢大衣</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">毛衣</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">棉服</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">女裤</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">羽绒服</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">牛仔裤</a></div>
+		</div>
+		<div id="center_img">
+			<img id="center_img_src" src="img/女靴.jpg" alt="">
+		</div>
+		<div id="right_content">
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">女包</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">男包</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">登山鞋</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">皮带</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">围巾</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">皮衣</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">男毛衣</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">男棉服</a></div>
+			<div class="content"><a href="javascript:void(0);" target="_blank" rel="noopener noreferrer">男靴</a></div>
+		</div>
+	</main>
+	<script>
+		$(function () {
+			$(".content").hover(function () {
+					$(this).css({ "background-color": "#E7453C" }, { "color": "#dfe6e9" });
+					var val = $(this).children().text();
+					$("#center_img_src").attr('src',"img/"+val+".jpg");
+				}, function() {
+					$(this).css({ "background-color": "#FFF6F7" }, { "color": "#2c3e50" });
+				})
+		})
+
+	</script>
+</body>
+
+</html>
