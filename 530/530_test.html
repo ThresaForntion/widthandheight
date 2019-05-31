@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>京东轮播图</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		main {
+			position: relative;
+			left: 30%;
+			top: 10rem;
+		}
+
+		.content_all_left,
+		.content_all_right {
+			font-family: "SimSun", "宋体";
+			width: 30px;
+			height: 60px;
+			background-color: rgba(0, 0, 0, 0.1);
+			position: absolute;
+			top: 50%;
+			margin-top: 204px;
+			cursor: pointer;
+			text-align: center;
+			line-height: 60px;
+			color: #fff;
+			font-weight: 700;
+			font-size: 30px;
+
+		}
+
+		.content_all_left:hover,
+		.content_all_right:hover {
+			background-color: #bdc3c7;
+
+		}
+
+		.content_all_left {
+			left: 0;
+		}
+
+		.content_all_right {
+			left: 560px;
+		}
+
+		.cal_content {
+			position: relative;
+		}
+
+		.cal_content img {
+			position: absolute;
+			display: none;
+			cursor: pointer;
+		}
+
+		.cal_content:hover .content_all_left {
+			display: block;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<div class="cal_content">
+			<img class="cal_content_img" src="1.jpg" alt="">
+			<img class="cal_content_img" src="2.jpg" alt="">
+			<img class="cal_content_img" src="3.jpg" alt="">
+			<img class="cal_content_img" src="4.jpg" alt="">
+			<img class="cal_content_img" src="5.jpg" alt="">
+			<img class="cal_content_img" src="6.jpg" alt="">
+			<img class="cal_content_img" src="7.jpg" alt="">
+			<img class="cal_content_img" src="8.jpg" alt="">
+		</div>
+		<div class="content_all">
+			<span class="content_all_left">&lt;</span>
+			<span class="content_all_right">&gt;</span>
+		</div>
+	</main>
+	<script>
+		$(function () {
+			$(".cal_content_img").eq(0).show();
+			var count = 0;
+			//自动轮播
+			function change() {
+				count++;
+				if (count >7) {
+					count = 0;
+				}
+				$(".cal_content img").eq(count).fadeIn(1000).siblings("img").fadeOut(1000);
+			}
+			$(".cal_content_img").hover(function () {
+				clearInterval(voop);
+			},function () {
+				voop = setInterval(change,2000);
+			})
+			//手动轮播
+			$(".content_all_right").click(function () {
+				count++;
+				if (count >7) {
+					count = 0;
+				}
+				$(".cal_content img").eq(count).fadeIn().siblings("img").fadeOut();
+			});
+
+			$(".content_all_left").click(function () {
+				count--;
+				if (count < 0) {
+					count = 7;
+				}
+				$(".cal_content img").eq(count).fadeIn().siblings("img").fadeOut();
+			})
+			//隐藏按钮
+			$(".cal_content").hover(function () {
+				$(".content_all_left").show().fadeIn();
+				$(".content_all_right").show().fadeIn();
+				
+			},function () {
+				$(".content_all_left").hide().fadeOut();
+				$(".content_all_right").hide().fadeOut();
+				
+			})
+		})
+	</script>
+</body>
+
+</html>

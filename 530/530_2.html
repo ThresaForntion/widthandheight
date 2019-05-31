@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+
+		}
+
+		main {
+			position: relative;
+			top: 10rem;
+			left: 19rem;
+		}
+
+		ul {
+			border: 1px solid #dcdde1;
+			width: 390px;
+			height: 40px;
+			display: flex;
+			border-bottom: none;
+			text-align: center;
+		}
+
+		span {
+			height: 30px;
+			line-height: 30px;
+			position: relative;
+			display: inline-block;
+			top: 3px;
+			width: 81px;
+			border-right: 1px solid #dcdde1;
+			padding-right: 13px;
+		}
+
+		ul li {
+			list-style: none;
+			margin-left: 2px;
+			/* border-right: 1px solid #dcdde1; */
+			width: 148px;
+			/* height: 27px; */
+			left: 8px;
+			/* position: e; */
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.css_top {
+			border-top: 3px solid brown;
+			position: relative;
+			left: -1px;
+		}
+
+		.count_img {}
+
+		.count_img_img {
+			position: absolute;
+			border: 1px solid #dcdde1;
+		}
+	</style>
+</head>
+
+<body>
+	<main>
+		<ul>
+			<li class="count_li css_top"><span>国际大牌</span></li>
+			<li class="count_li "><span>锅庄品牌</span></li>
+			<li class="count_li "><span>清洁用品</span></li>
+			<li class="count_li "><span style="border-right: none;">男士精品</span></li>
+		</ul>
+		<div class="count_img">
+			<div class="count_img_img"><img src="9.jpg" alt=""></div>
+			<div class="count_img_img"><img src="10.jpg" alt=""></div>
+			<div class="count_img_img"><img src="11.jpg" alt=""></div>
+			<div class="count_img_img"><img src="12.jpg" alt=""></div>
+		</div>
+	</main>
+	<script>
+		$(".count_img_img").eq(0).show();
+
+		$(".count_li").hover(function () {
+			var index = $(this).index();
+			$(".count_img_img").eq(index).fadeIn().siblings().fadeOut();
+			$(this).addClass("css_top").siblings().removeClass("css_top");
+		})
+	</script>
+</body>
+
+</html>
