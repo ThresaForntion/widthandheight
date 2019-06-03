@@ -138,8 +138,8 @@ input[type="text"] {
 	cursor: pointer;
 }
 .direction p:hover{
-	background-color: #00a8ff;
-	color: #1C036C;
+	color: #00a8ff;
+	
 }
 
 .direction_bgc{
