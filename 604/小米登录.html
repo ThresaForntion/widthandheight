@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小米账号-登录</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+            font-size: 14px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666666;
+        }
+
+        .top {
+            width: 1130px;
+            height: 98px;
+            margin: 0 auto;
+        }
+
+        .top a {
+            display: inline-block;
+            width: 200px;
+            height: 98px;
+            background-image: url("./logos/mi-store.png");
+        }
+
+        .main {
+            width: 100%;
+            height: 588px;
+            background-image: url("images/mi9.jpg");
+            background-position: center;
+            position: relative;
+        }
+
+        .main .middle {
+            width: 410px;
+            height: 524px;
+            position: absolute;
+            bottom: 32px;
+            right: 10%;
+            background-color: #fff;
+        }
+
+        .middle .login-type {
+            width: 100%;
+            height: 31px;
+            padding: 27px 0 24px;
+            text-align: center;
+            font-size: 24px;
+            color: #666666;
+        }
+
+        .main .middle .login-type a:hover {
+            color: #ff6700;
+        }
+
+        .main .middle .login-type span {
+            width: 1px;
+            height: 24px;
+            margin: 0 35px 0 42px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .main .middle .login-input {
+            width: 348px;
+            padding: 10px 31px 0;
+        }
+
+        .main .middle .login-input>div>input {
+            display: block;
+            width: 316px;
+            height: 22px;
+            line-height: 22px;
+            padding: 14px 15px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+            color: #4a4a4a;
+        }
+
+        .main .middle .login-input input:focus {
+            outline: none;
+        }
+
+        .main .middle .login-Button {
+            width: 348px;
+            height: 50px;
+            padding: 10px 0 0;
+        }
+
+        .main .middle .login-Button input {
+            background-color: #ff6700;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            margin: 3px 0 14px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+            border: 0 none;
+        }
+
+        .middle .register {
+            width: 100%;
+            height: 49px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .middle .register .phone {
+            float: left;
+            color: #ff6700;
+        }
+
+        .middle .register .forget-password {
+            float: right;
+            color: #999;
+        }
+
+        .middle .register .forget-password:hover {
+            color: #ff6700;
+        }
+
+        .middle .register span {
+            float: right;
+            color: #999;
+            padding: 0 5px;
+        }
+
+        .middle .register .register-now {
+            float: right;
+            color: #999;
+            color: #999;
+        }
+
+        .middle .register .register-now:hover {
+            color: #ff6700;
+        }
+
+        .middle .type {
+            width: 100%;
+            height: 30px;
+            margin: 100px 0;
+            position: relative;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .middle .type .choose {
+            width: 84px;
+            height: 20px;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+            font-size: 14px;
+            color: #bbb;
+            left: 0;
+            right: 0;
+            margin: auto;
+            background-color: #fff;
+        }
+
+        .choose-type {
+            width: 348px;
+            height: 36px;
+            line-height: 36px;
+            padding: 3px 0 0;
+            position: absolute;
+            bottom: 27px;
+            text-align: center;
+        }
+
+        .choose-type div {
+            display: inline-block;
+            margin: 0 17px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .qq {
+            background-color: #0288d1;
+        }
+
+        #qq {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 4px 6px 0;
+            border-radius: 50%;
+            background-image: url("logos/login.png");
+            background-position: -19px 0;
+        }
+
+        .weibo {
+            background-color: #d32f2f;
+        }
+
+        #wb {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 4px 6px 0;
+            border-radius: 50%;
+            background-image: url("logos/login.png");
+            background-position: -38px 0;
+        }
+
+        .pay {
+            background-color: #0ae;
+        }
+
+        #pay {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 6px 1px 0 4PX;
+            border-radius: 50%;
+            background-image: url("logos/login.png");
+            background-position: -57px 0;
+        }
+
+        .weixin {
+            background-color: #00d20d;
+        }
+
+        #wx {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            margin: 6px 3px 0;
+            border-radius: 15px;
+            background-image: url("logos/login.png");
+            background-position: -83px 0;
+        }
+
+        /*二维码板块*/
+    </style>
+
+
+    <style>
+        .afterbody {
+            height: 80px;
+            background: #fff;
+            margin-top: 0;
+            padding-top: 100px;
+            position: relative;
+            top: -32px;
+        }
+
+        .afterbody .language {
+            height: 19px;
+            text-align: center;
+            color: #757575;
+        }
+
+        .afterbody .language a {
+            color: #757575;
+            padding: 0 10px;
+        }
+
+        .last {
+            color: #757575;
+            height: 44px;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+
+    <style>
+        .hidden {
+            /* display: none; */
+        }
+
+        .show {
+            display: block;
+        }
+
+        .turnOrange {
+            color: #ff6700;
+        }
+
+        .turnNormal {
+            color: #666666;
+        }
+    </style>
+
+    <!--手机登录注册-->
+    <style>
+        .phone1 {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 14px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .phone1 span {
+            width: 33px;
+            height: 24px;
+            line-height: 24px;
+            padding: 13px 10px 13px 0;
+            margin-left: 20px;
+            color: #333;
+            border-right: 1px solid #e0e0e0;
+            display: inline-block;
+            overflow: hidden;
+            float: left;
+        }
+
+        .phone1 input {
+            width: 252px;
+            height: 24px;
+            line-height: 24px;
+            padding: 13px 16px 13px 14px;
+            display: inline-block;
+            border: 0 none;
+            outline: 0;
+            float: left;
+        }
+
+        .message {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 14px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message input {
+            width: 205px;
+            height: 24px;
+            line-height: 24px;
+            padding: 13px 16px 13px 14px;
+            display: inline-block;
+            border: 0 none;
+            outline: 0;
+            float: left;
+        }
+
+        .message span {
+            width: 70px;
+            padding: 15px 20px;
+            color: #333;
+            display: block;
+            overflow: hidden;
+            border-left: 1px solid #e0e0e0;
+            float: left;
+        }
+
+        .post {
+            width: 100%;
+            height: 50px;
+            padding-top: 10px;
+            margin-bottom: 12px;
+        }
+
+        .post input {
+            background-color: #ff6700;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+            border: 0 solid;
+            outline: none;
+        }
+
+        #logon {
+            color: #ff6700;
+            border: 0 none;
+            height: auto;
+            line-height: normal;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            padding-bottom: 30px;
+        }
+
+        .slideUp-enter-active,
+        .slideUp-leave-active {
+            transition: opacity .5s;
+        }
+
+        .slideUp-enter,
+        .slideUp-leave-to
+
+        /* .fade-leave-active below version 2.1.8 */
+            {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <a href="#"></a>
+    </div>
+
+    <div class="main">
+        <div class="middle">
+            <div class="login-type">
+                <a @click="setshows" href="#" class="turnOrange" id="accountNumber">帐号登录</a><span></span>
+                <a @click="setshows2" href="#" id="qr-code">扫码登录</a>
+            </div>
+            <!--账号登陆-->
+            <div class="login-input" id="account">
+                <!--小米账号登录-->
+                <div v-show="ok" id="nameLogon" style="height: 246px;">
+                    <input type="text" class="username" placeholder="邮箱/手机号码/小米ID">
+                    <input type="text" class="password" placeholder="密码">
+
+
+                    <div class="login-Button">
+                        <input type="submit" name="" id="" value="登录">
+                    </div>
+
+                    <div class="register">
+                        <a @click="setshows1" href="#" class="phone" id="message">手机短信登录/注册</a>
+                        <a href="#" class="forget-password">忘记密码？</a><span>|</span>
+                        <a href="./小米注册.html" class="register-now">立即注册</a>
+
+                    </div>
+                </div>
+
+
+                <!--手机号登陆-->
+                <div v-show="ones" class="hidden" id="phoneLogon" style="height: 246px;">
+                    <!--手机号-->
+                    <div class="phone1">
+                        <transition name="slideUp">
+                            <span v-if="show">+86</span>
+                        </transition>
+                        <input type="text" placeholder="手机号码">
+                    </div>
+                    <!--密码-->
+                    <div class="message">
+                        <input type="text" placeholder="短信验证码"><span><a href="#">获取验证码</a></span>
+                    </div>
+
+                    <div class="post">
+                        <input type="button" value="立刻登录/注册">
+                    </div>
+
+                    <a @click="setshows" href="#" id="logon" id="logon">用户名密码登录</a>
+                </div>
+                <div v-show="tws" id="sweepCode" style="position: relative;top: -34px;left: -29px;"><img
+                        src="images/二维码.png" alt=""></div>
+
+                <div class="type">
+                    <div class="choose">其他方式登录</div>
+                </div>
+                <div class="choose-type">
+                    <div class="qq"><a href="#" id="qq"></a></div>
+                    <div class="weibo"><a href="#" id="wb"></a></div>
+                    <div class="pay"><a href="#" id="pay"></a></div>
+                    <div class="weixin"><a href="#" id="wx"></a></div>
+                </div>
+            </div>
+            <!--二维码登录-->
+
+
+        </div>
+    </div>
+
+    <div class="afterbody">
+        <div class="language">
+            <a href="#">简体</a>
+            <soan>|</soan>
+            <a href="#">繁体</a>
+            <soan>|</soan>
+            <a href="#">English</a>
+            <soan>|</soan>
+            <a href="#">常见问题</a>
+            <soan>|</soan>
+            <a href="#">隐私政策</a>
+        </div>
+
+        <div class="last">
+            <span>小米公司版权所有-京ICP备10046444-</span>
+            <img src="images/ghs.png" alt="" width="20" height="20">
+            <span>京公网安备11010802020134号-京ICP证110507号</span>
+        </div>
+    </div>
+
+    <script>
+        // var account = document.getElementById('accountNumber');
+        // var qr = document.getElementById('qr-code');
+        // account.addEventListener('click', function () {
+        //     document.getElementById('account').className = 'login-input show';
+        //     document.getElementById('sweepCode').className = 'hidden ';
+        //     account.className = 'turnOrange';
+        //     qr.className = 'turnNormal';
+        // })
+        // qr.addEventListener('click', function () {
+        //     document.getElementById('account').className = 'login-input hidden';
+        //     document.getElementById('sweepCode').className = 'show';
+        //     account.className = 'turnNormal';
+        //     qr.className = 'turnOrange';
+        // })
+
+        // document.getElementById('message').addEventListener('click', function () {
+        //     document.getElementById('nameLogon').style.display = 'none';
+        //     document.getElementById('phoneLogon').style.display = 'block';
+        // })
+        // document.getElementById('logon').addEventListener('click', function () {
+        //     document.getElementById('nameLogon').style.display = 'block';
+        //     document.getElementById('phoneLogon').style.display = 'none';
+        // })
+        var vm = new Vue({
+            el: ".main",
+            data: {
+                ok: true,
+                ones: false,
+                tws: false,
+                show: false
+            },
+            methods: {
+                setshows() {
+                    this.ok = true;
+                    this.ones = false;
+                    this.tws = false;
+                },
+                setshows1() {
+                    this.ok = false;
+                    this.ones = true;
+                    this.tws = false;
+                    this.show = true;
+                },
+                setshows2() {
+                    this.ok = false;
+                    this.ones = false;
+                    this.tws = true;
+                }
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
