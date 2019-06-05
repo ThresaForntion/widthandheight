@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>小米账号-登录</title>
+    <title>小米 登录</title>
     <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <link href="https://cdn.bootcss.com/animate.css/3.7.1/animate.css" rel="stylesheet">
+
     <style>
         * {
             padding: 0;
@@ -153,8 +155,10 @@
             width: 100%;
             height: 30px;
             margin: 100px 0;
-            position: relative;
+            position: absolute;
             border-top: 1px solid #e0e0e0;
+            bottom: 0px;
+            left: 0px;
         }
 
         .middle .type .choose {
@@ -304,6 +308,7 @@
             height: 50px;
             margin-bottom: 14px;
             border: 1px solid #e0e0e0;
+            overflow: hidden;
         }
 
         .phone1 span {
@@ -402,6 +407,20 @@
             {
             opacity: 0;
         }
+
+        .slideIt-enter-active,
+        .slideIt-leave-active {
+            transition: opacity .5s;
+            transform: translateX(-100px)
+        }
+
+        .slideIt-enter,
+        .slideIt-leave-to
+
+        /* .fade-leave-active below version 2.1.8 */
+            {
+            opacity: 0;
+        }
     </style>
 </head>
 
@@ -419,46 +438,58 @@
             <!--账号登陆-->
             <div class="login-input" id="account">
                 <!--小米账号登录-->
-                <div v-show="ok" id="nameLogon" style="height: 246px;">
-                    <input type="text" class="username" placeholder="邮箱/手机号码/小米ID">
-                    <input type="text" class="password" placeholder="密码">
+                <transition name="slideUp">
+                    <div v-show="ok" id="nameLogon" style="position:absolute;height: 246px;">
+                        <input type="text" class="username" placeholder="邮箱/手机号码/小米ID">
+                        <input type="text" class="password" placeholder="密码">
 
 
-                    <div class="login-Button">
-                        <input type="submit" name="" id="" value="登录">
+                        <div class="login-Button">
+                            <input type="submit" name="" id="" value="登录">
+                        </div>
+
+                        <div class="register">
+                            <a @click="setshows1" href="#" class="phone" id="message">手机短信登录/注册</a>
+                            <a href="#" class="forget-password">忘记密码？</a><span>|</span>
+                            <a href="./小米注册.html" class="register-now">立即注册</a>
+
+                        </div>
+                    </div>
+                </transition>
+
+
+                <transition name="slideUp">
+                    <div v-show="ones" class="hidden" id="phoneLogon" style="height: 246px;">
+                        <!--手机号-->
+                        <div class="phone1">
+                            <transition enter-active-class="animated zoomInLeft">
+                                <span v-if="show">+86</span>
+                            </transition>
+                            <input type="text" placeholder="手机号码">
+                        </div>
+                        <!--密码-->
+                        <div class="message">
+                            <input type="text" placeholder="短信验证码"><span><a href="#">获取验证码</a></span>
+                        </div>
+
+                        <div class="post">
+                            <input type="button" value="立刻登录/注册">
+                        </div>
+
+                        <a @click="setshows" href="#" id="logon" id="logon">用户名密码登录</a>
                     </div>
 
-                    <div class="register">
-                        <a @click="setshows1" href="#" class="phone" id="message">手机短信登录/注册</a>
-                        <a href="#" class="forget-password">忘记密码？</a><span>|</span>
-                        <a href="./小米注册.html" class="register-now">立即注册</a>
-
-                    </div>
-                </div>
-
+                </transition>
 
                 <!--手机号登陆-->
-                <div v-show="ones" class="hidden" id="phoneLogon" style="height: 246px;">
-                    <!--手机号-->
-                    <div class="phone1">
-                        <transition name="slideUp">
-                            <span v-if="show">+86</span>
-                        </transition>
-                        <input type="text" placeholder="手机号码">
-                    </div>
-                    <!--密码-->
-                    <div class="message">
-                        <input type="text" placeholder="短信验证码"><span><a href="#">获取验证码</a></span>
-                    </div>
 
-                    <div class="post">
-                        <input type="button" value="立刻登录/注册">
-                    </div>
+                <transition name="slideUp">
+                    <div v-show="tws" id="sweepCode" style="position: relative;top: -34px;left: -29px;"><img
+                            src="images/二维码.png" alt=""></div>
+                </transition>
 
-                    <a @click="setshows" href="#" id="logon" id="logon">用户名密码登录</a>
-                </div>
-                <div v-show="tws" id="sweepCode" style="position: relative;top: -34px;left: -29px;"><img
-                        src="images/二维码.png" alt=""></div>
+
+
 
                 <div class="type">
                     <div class="choose">其他方式登录</div>
@@ -533,6 +564,7 @@
                     this.ok = true;
                     this.ones = false;
                     this.tws = false;
+                    this.show = false;
                 },
                 setshows1() {
                     this.ok = false;
@@ -544,6 +576,7 @@
                     this.ok = false;
                     this.ones = false;
                     this.tws = true;
+
                 }
             }
 
